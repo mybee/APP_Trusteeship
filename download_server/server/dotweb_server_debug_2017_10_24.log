@@ -1,0 +1,10 @@
+    ____           __                     __
+   / __ \  ____   / /_ _      __  ___    / /_
+  / / / / / __ \ / __/| | /| / / / _ \  / __ \
+ / /_/ / / /_/ // /_  | |/ |/ / /  __/ / /_/ /
+/_____/  \____/ \__/  |__/|__/  \___/ /_.___/
+[debug] 2017-10-24 16:43:08.4965 [dotweb.go:78] DotWeb Start New AppServer
+[debug] 2017-10-24 16:43:08.601 [router.go:406] DotWeb:Router:RegisterRoute success [GET] [/app] [main.App]
+[debug] 2017-10-24 16:43:08.6012 [router.go:406] DotWeb:Router:RegisterRoute success [GET] [/admin] [main.AdminView]
+[debug] 2017-10-24 16:43:08.634 [router.go:406] DotWeb:Router:RegisterRoute success [POST] [/file] [main.FileUpload]
+[debug] 2017-10-24 16:43:08.6805 [router.go:406] DotWeb:Router:RegisterRoute success [GET] [/qrcode] [main.Qrcode]

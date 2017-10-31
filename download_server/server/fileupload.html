@@ -1,0 +1,60 @@
+
+<html>
+<head>
+    <title>文件上传</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+    <script>
+        function check() {
+            var excel_file = $("#app_name").val();
+            if (excel_file == "" || excel_file.length == 0) {
+                alert("请输入app的名称！");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        var form = $("#ipas_form");
+        function sendForm(str, types) {
+
+            var oOutput = document.querySelector("div"),
+            oData = new FormData((document.forms.namedItem(str)));
+
+            oData.append("username", "This is some extra data");
+
+            var oReq = new XMLHttpRequest();
+            //oReq.open("POST", "https://sddeznsm.com/file?type="+ types +"&app_name="+$("#app_name").val(), true);
+            oReq.open("POST", "http://localhost:9000/file?type="+ types +"&app_name="+$("#app_name").val(), true);
+            oReq.onload = function(oEvent) {
+                if (oReq.status == 200) {
+                    alert("上传成功");
+                    oOutput.innerHTML = "Uploaded!";
+                } else {
+                    oOutput.innerHTML = "Error " + oReq.status + " occurred when trying to upload your file.<br \/>";
+                }
+            };
+
+            oReq.send(oData);
+}
+    </script>
+</head>
+<body>
+<form action="form_action.asp" method="get">
+    app名称: <input type="text" name="fname" id="app_name"/>
+</form>
+<form enctype="multipart/form-data" id="ipas_form" method="post">
+    <input type="file" name="file" />
+</form>
+<a href="javascript:sendForm('ipas_form', 'ipas')">上传苹果安装包!</a>
+<form enctype="multipart/form-data" id="apks_form" method="post">
+    <input type="file" name="file" />
+</form>
+<a href="javascript:sendForm('apks_form', 'apks')">上传安卓安装包!</a>
+<form enctype="multipart/form-data" id="plists_form" method="post">
+    <input type="file" name="file" />
+</form>
+<a href="javascript:sendForm('plists_form', 'plists')">上传苹果配置文件!</a>
+
+</body>
+</html>
